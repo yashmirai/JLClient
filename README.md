@@ -8,7 +8,7 @@ Interacting with Jarvislabs.ai for creating GPU/CPU powered instances on top of 
 
 
 
-pip install git+https://github.com/jarvislabsai/jlclient.git
+pip install git+https://github.com/yashmirai/jlclient.git
 
 
 
@@ -44,7 +44,7 @@ Generate a token from [here](https://cloud.jarvislabs.ai/settings#api).
 | num_gpus / num_cpus | int  | Choose between 1 to 8 for GPU instance.                                   | 1             |
 | gpu_type            | str  | Choose from **A100**, **RTX6000Ada**, **A5000**, **A6000**, **RTX5000**.  | RTX5000       |
 | template            | str  | Use `User.get_templates()` to get all templates.                          | pytorch       |
-| script_id           | str  | Use `User.get_scripts()` to get all script ids and pass it.                                     | None          |
+| script_id           | str  | Use `User.get_scripts()` to get all script ids and pass it.               | None          |
 | is_reserved         | bool | True refers to an on-demand instance. False refers to a spot instance.    | True          |
 | duration            | str  | Choose hour, week, and month. The pricing changes based on the duration.. | hour          |
 | http_ports          | str  | As per your requirement, you can specify the ports.                       | None          |
@@ -202,7 +202,7 @@ The `User` class comes with the below key functionalities.
 
 - `User.get_balance()` : Return the balance of the user.
 
--  `User.get_scripts()` : Return the list of scripts of the user
+- `User.get_scripts()` : Return the list of scripts of the user
 
 ### Get the scripts of the User
 

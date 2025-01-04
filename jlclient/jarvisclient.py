@@ -156,6 +156,7 @@ class Instance(object):
                storage: int = 20,
                name: str = 'Name me',
                script_id: str = None,
+               fs_id: str = None,
                image: str = None,
                script_args: str = None,
                is_reserved :bool = True,
@@ -169,6 +170,7 @@ class Instance(object):
                     'script_args':script_args,
                     'is_reserved' :is_reserved,
                     'duration':duration,
+                    'fs_id' :fs_id,
                     'http_ports' :http_ports}
         instance_params = {}
 
