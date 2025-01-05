@@ -192,7 +192,7 @@ class Instance(object):
             machine_details = Instance.get_instance_details(machine_id=machine_id)
             instance_params.update({
                 'hdd': storage,
-                'name': machine_details.get('name'),
+                'name': machine_details.get('name', name),
                 'url': machine_details.get('url'),
                 'endpoints': machine_details.get('endpoints'),
                 'ssh_str': machine_details.get('ssh_str'),
