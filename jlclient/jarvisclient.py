@@ -158,6 +158,7 @@ class Instance(object):
                storage: int = 20,
                name: str = 'Name me',
                script_id: str = None,
+               fs_id: str = None,
                image: str = None,
                script_args: str = None,
                is_reserved :bool = True,
