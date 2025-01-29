@@ -68,6 +68,9 @@ class Instance(object):
         return destroy_response
     
     def update_instance_meta(self,req,machine_details):
+        print("\nSelf :: ", self)
+        print("\nReq :: ", req)
+        print("\nMachine Details :: ", machine_details)
         self.machine_id = machine_details.get('machine_id')
         self.gpu_type = req.get('gpu_type')
         self.num_gpus = req.get('num_gpus')
@@ -116,12 +119,13 @@ class Instance(object):
             resume_req['is_reserved'] = is_reserved if is_reserved else self.is_reserved
         
         try:
-            print("resume_req :: ", resume_req)
+            print("\nself :: ", self)
+            print("\nresume_req :: ", resume_req)
             resume_resp = post(resume_req,f'templates/{self.template}/resume', jarvisclient.token)
-            print("resume_resp :: ", resume_resp)
+            print("\nresume_resp :: ", resume_resp)
             self.machine_id = resume_resp['machine_id']
             machine_details = Instance.get_instance_details(machine_id=self.machine_id)
-            print("machine_details :: ", machine_details)
+            print("\nmachine_details :: ", machine_details)
             self.update_instance_meta(req=resume_req,machine_details=machine_details)
             return self
         
