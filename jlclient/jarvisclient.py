@@ -95,7 +95,6 @@ class Instance(object):
                duration: str=None,
                fs_id: str=None
                ):
-        print(self, " | ", script_args, " | ", self.script_args, " | ", script_args or self.script_args)
         resume_req = {
             'machine_id': self.machine_id,
             'hdd' :  storage or self.hdd,
@@ -117,9 +116,12 @@ class Instance(object):
             resume_req['is_reserved'] = is_reserved if is_reserved else self.is_reserved
         
         try:
+            print("resume_req :: ", resume_req)
             resume_resp = post(resume_req,f'templates/{self.template}/resume', jarvisclient.token)
+            print("resume_resp :: ", resume_resp)
             self.machine_id = resume_resp['machine_id']
             machine_details = Instance.get_instance_details(machine_id=self.machine_id)
+            print("machine_details :: ", machine_details)
             self.update_instance_meta(req=resume_req,machine_details=machine_details)
             return self
         
