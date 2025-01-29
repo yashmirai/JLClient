@@ -95,6 +95,7 @@ class Instance(object):
                duration: str=None,
                fs_id: str=None
                ):
+        print(self, " | ", script_args, " | ", self.script_args, " | ", script_args or self.script_args)
         resume_req = {
             'machine_id': self.machine_id,
             'hdd' :  storage or self.hdd,
